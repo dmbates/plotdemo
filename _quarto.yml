@@ -1,0 +1,8 @@
+project:
+  title: "plotdemo"
+  output-dir: docs
+
+execute: 
+  freeze: true
+
+execute-dir: project
