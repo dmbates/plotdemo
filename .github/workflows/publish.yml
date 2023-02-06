@@ -16,17 +16,13 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Install Python
-        uses: actions/setup-python@v4
-          with:
-            python-version: '3.x'
      
-      - name: Install Jupyter
-        run: pip install jupyter
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+      - run: pip install jupyter
 
-      - uses: julia-actions/setup-julia@v1
-      
+      - uses: julia-actions/setup-julia@v1    
       - run: julia --project -e 'using Pkg; Pkg.instantiate(); Pkg.add("IJulia")'
 
       - name: Render and Publish
